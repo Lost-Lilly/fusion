@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sewing Room</title>
+    <!--<link rel="stylesheet" href="Raum.css">-->
+</head>
+<style>
+    body { 
+  background-image:url(images/Hintergrund.jpg); /* Pfad zu deinem Bild */ 
+  background-size: cover; /* Bild über die gesamte Fläche */
+  background-repeat: no-repeat; /* Bild nicht wiederholen */
+  background-position: center; /* Bild zentrieren */
+  width: 100vw; /* Breite 100% der Viewport-Breite */
+  height: 100vh; /* Höhe 100% der Viewport-Höhe */
+  display: flex;
+}
+/*
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0; 
+}*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+
+        /* Stil für das Modal */
+        .modal {
+          display: none; /* Versteckt das Modal standardmäßig */
+          position: fixed; /* Bleibt an der gleichen Stelle */
+          z-index: 1; /* Über anderen Inhalten */
+          left: 0;
+          top: 0;
+          width: 100%; /* Volle Breite */
+          height: 100%; /* Volle Höhe */
+          overflow: auto; /* Scrollen, falls nötig */
+          background-color: rgb(0,0,0); /* Fallback-Farbe */
+          background-color: rgba(0,0,0,0.4); /* Schwarz mit Transparenz */
+      }
+      .modal-content {
+          background-color: #fefefe;
+          margin: 15% auto; /* 15% vom oberen Rand und zentriert */
+          padding: 20px;
+          border: 1px solid #888;
+          width: 80%; /* Breite des Modals */
+      }
+      .close {
+          color: #aaa;
+          float: right;
+          font-size: 28px;
+          font-weight: bold;
+      }
+      .close:hover,
+      .close:focus {
+          color: black;
+          text-decoration: none;
+          cursor: pointer;
+      }
+
+
+
+
+      
+/* Stil für den linken Container */
+.left {
+  background-color: transparent;
+  margin: 0; /* Kein Margin */
+  padding: 20px;
+  flex: 1; /* Nimmt gleich viel Platz ein */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Stil für den mittleren Container */
+.middle {
+  background-color: transparent;
+  margin: 0; /* Kein Margin */
+  padding: 20px;
+  flex: 1; /* Nimmt gleich viel Platz ein */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Stil für den rechten Container */
+.right {
+  background-color:transparent;
+  margin: 0; /* Kein Margin */
+  padding: 20px;
+  flex: 1; /* Nimmt gleich viel Platz ein */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+
+
+.sewingmachine {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 60px; /*Sparkle size*/
+    width: 50px; /*Sparkle size*/
+    mask: radial-gradient(#0000 71%, #000 72%) 10000% 10000%/99.5% 99.5%;
+    border-radius: 50%;
+    background-color:#FFFACD;
+    opacity: 0; /* Initial opacity is 0, so the circle is not visible */
+    transition: opacity 0.3s, width 0.3s, height 0.3s; /* Add transition effects */
+    cursor: pointer; /* Change cursor to a pointer on hover */
+  }
+  
+  .sewingmachine:hover {
+    opacity: 0.9; /* Make the circle visible on hover */
+  }
+  
+  .sewingmachine:active {
+    height: 30px; /* Make the circle smaller on click */
+    width: 25px;
+    mask: radial-gradient(#0000 71%, #000 72%) 10000% 10000%/99.5% 99.5%;
+  }
+
+
+  .picture1 {
+    position: absolute;
+    top: 32%;
+    left: 31%;
+    transform: translate(-50%, -50%);
+    height: 60px; /*Sparkle size*/
+    width: 50px; /*Sparkle size*/
+    mask: radial-gradient(#0000 71%, #000 72%) 10000% 10000%/99.5% 99.5%;
+    border-radius: 50%;
+    background-color:#FFFACD;
+    opacity: 0; /* Initial opacity is 0, so the circle is not visible */
+    transition: opacity 0.3s, width 0.3s, height 0.3s; /* Add transition effects */
+    cursor: pointer; /* Change cursor to a pointer on hover */
+  }
+  
+  .picture1:hover {
+    opacity: 0.9; /* Make the circle visible on hover */
+  }
+  
+  .picture1:active {
+    height: 30px; /* Make the circle smaller on click */
+    width: 25px;
+    mask: radial-gradient(#0000 71%, #000 72%) 10000% 10000%/99.5% 99.5%;
+  }
+
+
+  .picture2 {
+    position: absolute;
+    top: 29%;
+    left: 18%;
+    transform: translate(-50%, -50%);
+    height: 60px; /*Sparkle size*/
+    width: 50px; /*Sparkle size*/
+    mask: radial-gradient(#0000 71%, #000 72%) 10000% 10000%/99.5% 99.5%;
+    border-radius: 50%;
+    background-color:#FFFACD;
+    opacity: 0; /* Initial opacity is 0, so the circle is not visible */
+    transition: opacity 0.3s, width 0.3s, height 0.3s; /* Add transition effects */
+    cursor: pointer; /* Change cursor to a pointer on hover */
+  }
+  
+  .picture2:hover {
+    opacity: 0.9; /* Make the circle visible on hover */
+  }
+  
+  .picture2:active {
+    height: 30px; /* Make the circle smaller on click */
+    width: 25px;
+    mask: radial-gradient(#0000 71%, #000 72%) 10000% 10000%/99.5% 99.5%;
+  }
+
+  .rug {
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 60px; /*Sparkle size*/
+    width: 50px; /*Sparkle size*/
+    mask: radial-gradient(#0000 71%, #000 72%) 10000% 10000%/99.5% 99.5%;
+    border-radius: 50%;
+    background-color:#FFFACD;
+    opacity:0; /* Initial opacity is 0, so the circle is not visible */
+    transition: opacity 0.3s, width 0.3s, height 0.3s; /* Add transition effects */
+    cursor: pointer; /* Change cursor to a pointer on hover */
+  }
+  
+  .rug:hover {
+    opacity: 0.9; /* Make the circle visible on hover */
+  }
+  
+  .rug:active {
+    height: 30px; /* Make the circle smaller on click */
+    width: 25px;
+    mask: radial-gradient(#0000 71%, #000 72%) 10000% 10000%/99.5% 99.5%;
+  }
+
+  .door {
+    position: absolute;
+    top: 47%;
+    left: 83%;
+    transform: translate(-50%, -50%);
+    height: 60px; /*Sparkle size*/
+    width: 50px; /*Sparkle size*/
+    mask: radial-gradient(#0000 71%, #000 72%) 10000% 10000%/99.5% 99.5%;
+    border-radius: 50%;
+    background-color:#FFFACD;
+    opacity: 0; /* Initial opacity is 0, so the circle is not visible */
+    transition: opacity 0.3s, width 0.3s, height 0.3s; /* Add transition effects */
+    cursor: pointer; /* Change cursor to a pointer on hover */
+  }
+  
+  .door:hover {
+    opacity: 0.9; /* Make the circle visible on hover */
+  }
+  
+  .door:active {
+    height: 30px; /* Make the circle smaller on click */
+    width: 25px;
+    mask: radial-gradient(#0000 71%, #000 72%) 10000% 10000%/99.5% 99.5%;
+  }
+          /* Modal Styles */
+          .modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 15% auto; /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Could be more or less, depending on screen size */
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+</style>
+<body>
+    <div class="left">
+        <div class="picture1" onclick="openModal('Platzhalter 1', 'Text oder anderer Bums für Bild 1')"></div>
+        <div class="picture2" onclick="openModal('Platzhalter 2', 'Text oder anderer Bums für Bild 2')"></div>
+    </div>
+    <div class="middle">
+        <div class="sewingmachine" onclick="openModal('Nähmaschine')"></div>
+        <div class="rug" onclick="openModal('Teppich - Wie alles begann', 'Vor der Nähmaschine war das Nähen eine mühsame und zeitraubende Arbeit. Können Sie sich vorstellen, wie Menschen vor Tausenden von Jahren mit einfachen Nadeln aus Knochen oder Elfenbein Leder zu Kleidung zusammennähten? Bereits vor über 21.000 Jahren begannen unsere Vorfahren, aus Tierhäuten Schutzkleidung zu fertigen. Im Mittelalter war es vor allem den Frauen vorbehalten, für die Reichen Kleider zu schneidern. Doch dann, 1830, kam die bahnbrechende Erfindung: die Nähmaschine von Barthélémy Timonnier. Plötzlich konnte man sechs Mal schneller nähen als von Hand! Haben Sie sich schon einmal gefragt, wie viel einfacher es heute ist, mit einer Nähmaschine kreativ zu werden? Das Nähen hat sich von einem arbeitsintensiven Handwerk zu einem faszinierenden Hobby entwickelt, das immer mehr Menschen begeistert.')"></div>
+    </div>
+    <div class="right">
+        <div class="door" onclick="openModal('Tür')"></div>
+    </div>
+    
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle">Zimmer der Näherin</h2>
+            <p id="modalText">Sie betreten das Zimmer der Näherin, um eintreten zu dürfen müssen Sie folgende Punkte erfüllen:</p>
+            <ul id="checklist">
+                <li><input type="checkbox" onchange="checkChecklist()"> Sie verwenden einen Laptop oder PC</li>
+                <li><input type="checkbox" onchange="checkChecklist()"> Sie sind im Vollbildmodus</li>
+            </ul>
+            <div id="stepsContainer" style="display: none;">
+                <h3>Schritte zur Verwendung der Nähmaschine:</h3>
+                <ol id="stepsList"></ol>
+            </div>
+        </div>
+        <div id="exitContainer" style="display: none;">
+            <p>Sie wollen das Zimmer der Näherin verlassen?</p>
+            <button onclick="leaveRoom()">Raum verlassen</button>
+        </div>
+    </div>
+        </div>
+    </div>
+
+    <script>
+        // Get the modal
+        var modal = document.getElementById("myModal");
+
+        // Function to open the modal
+        function openModal(title, content = '') {
+            document.getElementById("modalTitle").innerText = title;
+
+            // Check if the modal is for the sewing machine
+            if (title === 'Nähmaschine') {
+                document.getElementById("modalText").innerText = 'Wenn Sie eine Nähmaschiene verwenden wollen, müssen Sie folgende Schritte beachten:';
+                document.getElementById("checklist").style.display = "none"; // Checkliste ausblenden
+                document.getElementById("stepsContainer").style.display = "block"; // Schritte anzeigen
+                populateSteps();
+            }
+             else if (title === 'Tür') {
+                document.getElementById("modalText").innerText = '';
+                document.getElementById("checklist").style.display = "none";
+                document.getElementById("stepsContainer").style.display = "none";
+                document.getElementById("exitContainer").style.display = "block";
+
+            }
+             else if (title ==='Zimmer der Näherin'){
+                document.getElementById("modalText").innerText = 'Sie betreten das Zimmer der Näherin, um eintreten zu dürfen müssen Sie folgende Punkte erfüllen:';
+                document.getElementById("checklist").style.display = "block"; // Checkliste anzeigen
+                document.getElementById("stepsContainer").style.display = "none"; // Schritte ausblenden
+            }
+        else {
+                // For rug, picture1, and picture2
+                document.getElementById("modalText").innerText = content;
+                document.getElementById("checklist").style.display = "none";
+                document.getElementById("stepsContainer").style.display = "none";
+                document.getElementById("exitContainer").style.display = "none";
+            }
+
+            modal.style.display = "block";
+        }
+
+        // Function to populate the steps for the sewing machine
+        function populateSteps() {
+            const stepsList = document.getElementById("stepsList");
+            stepsList.innerHTML = ''; // Clear previous steps
+
+            const steps = [
+                "Schritt: Überprüfen Sie, ob die Nähmaschine richtig eingerichtet ist.",
+                "Schritt: Wählen Sie den richtigen N ähfaden und die passende Nadel für Ihr Projekt.",
+                "Schritt: Fädeln Sie die Nähmaschine gemäß der Anleitung ein.",
+                "Schritt: Stellen Sie die Stichlänge und -breite ein.",
+                "Schritt: Legen Sie den Stoff unter den Nähfuß.",
+                "Schritt: Starten Sie die Nähmaschine und führen Sie den Stoff gleichmäßig.",
+                "Schritt: Beenden Sie den Stich und sichern Sie die Naht."
+            ];
+
+            steps.forEach(step => {
+                const li = document.createElement("li");
+                li.innerText = step;
+                stepsList.appendChild(li);
+            });
+        }
+
+        function leaveRoom() {
+            window.location.href = '#';
+        }
+        // Function to close the modal
+        function closeModal() {
+            modal.style.display = "none";
+        }
+
+        // Function to check if all checklist items are checked
+        function checkChecklist() {
+            const checkboxes = document.querySelectorAll('#checklist input[type="checkbox"]');
+            const allChecked = Array.from(checkboxes).every(checkbox => checkbox.checked);
+            if (allChecked) {
+                closeModal();
+            }
+        }
+
+        // Open the modal when the page loads
+        window.onload = function() {
+            openModal('Zimmer der Näherin');
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
+
+</body>
+</html>

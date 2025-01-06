@@ -1,0 +1,257 @@
+/* Body-Stil */
+body { 
+  background-image:url(images/Hintergrund.jpg); /* Pfad zu deinem Bild */ 
+  background-size: cover; /* Bild über die gesamte Fläche */
+  background-repeat: no-repeat; /* Bild nicht wiederholen */
+  background-position: center; /* Bild zentrieren */
+  width: 100vw; /* Breite 100% der Viewport-Breite */
+  height: 100vh; /* Höhe 100% der Viewport-Höhe */
+  display: flex;
+}
+/*
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0; 
+}*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+
+        /* Stil für das Modal */
+        .modal {
+          display: none; /* Versteckt das Modal standardmäßig */
+          position: fixed; /* Bleibt an der gleichen Stelle */
+          z-index: 1; /* Über anderen Inhalten */
+          left: 0;
+          top: 0;
+          width: 100%; /* Volle Breite */
+          height: 100%; /* Volle Höhe */
+          overflow: auto; /* Scrollen, falls nötig */
+          background-color: rgb(0,0,0); /* Fallback-Farbe */
+          background-color: rgba(0,0,0,0.4); /* Schwarz mit Transparenz */
+      }
+      .modal-content {
+          background-color: #fefefe;
+          margin: 15% auto; /* 15% vom oberen Rand und zentriert */
+          padding: 20px;
+          border: 1px solid #888;
+          width: 80%; /* Breite des Modals */
+      }
+      .close {
+          color: #aaa;
+          float: right;
+          font-size: 28px;
+          font-weight: bold;
+      }
+      .close:hover,
+      .close:focus {
+          color: black;
+          text-decoration: none;
+          cursor: pointer;
+      }
+
+
+
+
+      
+/* Stil für den linken Container */
+.left {
+  background-color: transparent;
+  margin: 0; /* Kein Margin */
+  padding: 20px;
+  flex: 1; /* Nimmt gleich viel Platz ein */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Stil für den mittleren Container */
+.middle {
+  background-color: transparent;
+  margin: 0; /* Kein Margin */
+  padding: 20px;
+  flex: 1; /* Nimmt gleich viel Platz ein */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Stil für den rechten Container */
+.right {
+  background-color:transparent;
+  margin: 0; /* Kein Margin */
+  padding: 20px;
+  flex: 1; /* Nimmt gleich viel Platz ein */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+
+
+.sewingmachine {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 60px; /*Sparkle size*/
+    width: 50px; /*Sparkle size*/
+    mask: radial-gradient(#0000 71%, #000 72%) 10000% 10000%/99.5% 99.5%;
+    border-radius: 50%;
+    background-color:#FFFACD;
+    opacity: 0; /* Initial opacity is 0, so the circle is not visible */
+    transition: opacity 0.3s, width 0.3s, height 0.3s; /* Add transition effects */
+    cursor: pointer; /* Change cursor to a pointer on hover */
+  }
+  
+  .sewingmachine:hover {
+    opacity: 0.9; /* Make the circle visible on hover */
+  }
+  
+  .sewingmachine:active {
+    height: 30px; /* Make the circle smaller on click */
+    width: 25px;
+    mask: radial-gradient(#0000 71%, #000 72%) 10000% 10000%/99.5% 99.5%;
+  }
+
+
+  .picture1 {
+    position: absolute;
+    top: 32%;
+    left: 31%;
+    transform: translate(-50%, -50%);
+    height: 60px; /*Sparkle size*/
+    width: 50px; /*Sparkle size*/
+    mask: radial-gradient(#0000 71%, #000 72%) 10000% 10000%/99.5% 99.5%;
+    border-radius: 50%;
+    background-color:#FFFACD;
+    opacity: 0; /* Initial opacity is 0, so the circle is not visible */
+    transition: opacity 0.3s, width 0.3s, height 0.3s; /* Add transition effects */
+    cursor: pointer; /* Change cursor to a pointer on hover */
+  }
+  
+  .picture1:hover {
+    opacity: 0.9; /* Make the circle visible on hover */
+  }
+  
+  .picture1:active {
+    height: 30px; /* Make the circle smaller on click */
+    width: 25px;
+    mask: radial-gradient(#0000 71%, #000 72%) 10000% 10000%/99.5% 99.5%;
+  }
+
+
+  .picture2 {
+    position: absolute;
+    top: 29%;
+    left: 18%;
+    transform: translate(-50%, -50%);
+    height: 60px; /*Sparkle size*/
+    width: 50px; /*Sparkle size*/
+    mask: radial-gradient(#0000 71%, #000 72%) 10000% 10000%/99.5% 99.5%;
+    border-radius: 50%;
+    background-color:#FFFACD;
+    opacity: 0; /* Initial opacity is 0, so the circle is not visible */
+    transition: opacity 0.3s, width 0.3s, height 0.3s; /* Add transition effects */
+    cursor: pointer; /* Change cursor to a pointer on hover */
+  }
+  
+  .picture2:hover {
+    opacity: 0.9; /* Make the circle visible on hover */
+  }
+  
+  .picture2:active {
+    height: 30px; /* Make the circle smaller on click */
+    width: 25px;
+    mask: radial-gradient(#0000 71%, #000 72%) 10000% 10000%/99.5% 99.5%;
+  }
+
+  .rug {
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 60px; /*Sparkle size*/
+    width: 50px; /*Sparkle size*/
+    mask: radial-gradient(#0000 71%, #000 72%) 10000% 10000%/99.5% 99.5%;
+    border-radius: 50%;
+    background-color:#FFFACD;
+    opacity:0; /* Initial opacity is 0, so the circle is not visible */
+    transition: opacity 0.3s, width 0.3s, height 0.3s; /* Add transition effects */
+    cursor: pointer; /* Change cursor to a pointer on hover */
+  }
+  
+  .rug:hover {
+    opacity: 0.9; /* Make the circle visible on hover */
+  }
+  
+  .rug:active {
+    height: 30px; /* Make the circle smaller on click */
+    width: 25px;
+    mask: radial-gradient(#0000 71%, #000 72%) 10000% 10000%/99.5% 99.5%;
+  }
+
+  .door {
+    position: absolute;
+    top: 47%;
+    left: 83%;
+    transform: translate(-50%, -50%);
+    height: 60px; /*Sparkle size*/
+    width: 50px; /*Sparkle size*/
+    mask: radial-gradient(#0000 71%, #000 72%) 10000% 10000%/99.5% 99.5%;
+    border-radius: 50%;
+    background-color:#FFFACD;
+    opacity: 0; /* Initial opacity is 0, so the circle is not visible */
+    transition: opacity 0.3s, width 0.3s, height 0.3s; /* Add transition effects */
+    cursor: pointer; /* Change cursor to a pointer on hover */
+  }
+  
+  .door:hover {
+    opacity: 0.9; /* Make the circle visible on hover */
+  }
+  
+  .door:active {
+    height: 30px; /* Make the circle smaller on click */
+    width: 25px;
+    mask: radial-gradient(#0000 71%, #000 72%) 10000% 10000%/99.5% 99.5%;
+  }
+          /* Modal Styles */
+          .modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 15% auto; /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Could be more or less, depending on screen size */
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
