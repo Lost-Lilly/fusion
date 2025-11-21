@@ -1,122 +1,113 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sewing Room</title>
-    <link rel="stylesheet" href="Raum.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>KMM Küche – Startseite</title>
+
+    <style>
+        body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #000000;
+        }
+        #startBtn {
+        padding: 15px 35px;
+        font-size: 22px;
+        cursor: pointer;
+        border: none;
+        border-radius: 10px;
+        background-color: #007bff;
+        color: white;
+        }
+
+        /* Modal */
+        .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        }
+        .modal-content {
+        background-color: #fff;
+        margin: 10% auto;
+        padding: 20px;
+        border-radius: 10px;
+        width: 80%;
+        max-width: 600px;
+        box-shadow: 0 0 15px rgba(0,0,0,0.3);
+        }
+        .close {
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+        }
+        h2 {
+        margin-top: 0;
+        }
+        #goBtn {
+        margin-top: 20px;
+        padding: 10px 25px;
+        border: none;
+        border-radius: 8px;
+        background-color: #28a745;
+        color: white;
+        font-size: 18px;
+        cursor: pointer;
+        }
+    </style>
 </head>
+
 <body>
-    <div class="left">
-        <div class="picture1" onclick="openModal('Platzhalter 1', 'Beschreibung für Bild 1')"></div>
-        <div class="picture2" onclick="openModal('Platzhalter 2', 'Beschreibung für Bild 2')"></div>
-    </div>
-    <div class="middle">
-        <div class="sewingmachine" onclick="openModal('Nähmaschine')"></div>
-        <div class="rug" onclick="openModal('Teppich - Vor der Nähmaschiene', 'Vor der Nähmaschine war das Nähen eine mühsame und zeitraubende Arbeit. Können Sie sich vorstellen, wie Menschen vor Tausenden von Jahren mit einfachen Nadeln aus Knochen oder Elfenbein Leder zu Kleidung zusammennähten? Bereits vor über 21.000 Jahren begannen unsere Vorfahren, aus Tierhäuten Schutzkleidung zu fertigen. Im Mittelalter war es vor allem den Frauen vorbehalten, für die Reichen Kleider zu schneidern. Doch dann, 1830, kam die bahnbrechende Erfindung: die Nähmaschine von Barthélémy Timonnier. Plötzlich konnte man sechs Mal schneller nähen als von Hand! Haben Sie sich schon einmal gefragt, wie viel einfacher es heute ist, mit einer Nähmaschine kreativ zu werden? Das Nähen hat sich von einem arbeitsintensiven Handwerk zu einem faszinierenden Hobby entwickelt, das immer mehr Menschen begeistert.')"></div>
-    </div>
-    <div class="right">
-        <div class="door" onclick="openModal('Tür')"></div>
-    </div>
 
-    <!-- Modal -->
-    <div id="myModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <h2 id="modalTitle">Zimmer der Näherin</h2>
-            <p id="modalText">Textinhalt wird hier angezeigt.</p>
-            <ul id="checklist" style="display: none;">
-                <li><input type="checkbox" onchange="checkChecklist()"> Sie verwenden einen Laptop oder PC</li>
-                <li><input type="checkbox" onchange="checkChecklist()"> Sie sind im Vollbildmodus</li>
-            </ul>
-            <div id="stepsContainer" style="display: none;">
-                <h3>Schritte zur Verwendung der Nähmaschine:</h3>
-                <ol id="stepsList"></ol>
-            </div>
-            <div id="exitContainer" style="display: none;">
-                <p>Sie wollen das Zimmer der Näherin verlassen?</p>
-                <button onclick="leaveRoom()">Raum verlassen</button>
-            </div>
-        </div>
-    </div>
+<button id="startBtn">Start</button>
 
-    <script>
-        var modal = document.getElementById("myModal");
 
-        function openModal(title, content = '') {
-            document.getElementById("modalTitle").innerText = title;
-
-            if (title === 'Nähmaschine') {
-                document.getElementById("modalText").innerText = 'Hier sind die Schritte zur Verwendung der Nähmaschine:';
-                document.getElementById("checklist").style.display = "none";
-                document.getElementById("stepsContainer").style.display = "block";
-                populateSteps();
-                document.getElementById("exitContainer").style.display = "none";
-            } else if (title === 'Tür') {
-                document.getElementById("modalText").innerText = '';
-                document.getElementById("checklist").style.display = "none";
-                document.getElementById("stepsContainer").style.display = "none";
-                document.getElementById("exitContainer").style.display = "block";
-            } else {
-                // For rug, picture1, and picture2
-                document.getElementById("modalText").innerText = content;
-                document.getElementById("checklist").style.display = "none";
-                document.getElementById("stepsContainer").style.display = "none";
-                document.getElementById("exitContainer").style.display = "none";
-            }
-
-            modal.style.display = "block";
-        }
-
-        function populateSteps() {
-            const stepsList = document.getElementById("stepsList");
-            stepsList.innerHTML = ''; // Clear previous steps
-
-            const steps = [
-                "Schritt 1: Überprüfen Sie, ob die Nähmaschine richtig eingerichtet ist.",
-                "Schritt 2: Wählen Sie den richtigen Nähfaden und die passende Nadel für Ihr Projekt.",
-                "Schritt 3: Fädeln Sie die Nähmaschine gemäß der Anleitung ein.",
-                "Schritt 4: Stellen Sie die Stichlänge und -breite ein.",
-                "Schritt 5: Legen Sie den Stoff unter den Nähfuß.",
-                "Schritt 6: Starten Sie die Nähmaschine und führen Sie den Stoff gleichmäßig.",
-                "Schritt 7: Beenden Sie den Stich und sichern Sie die Naht."
-            ];
-
-            steps.forEach(step => {
-                const li = document.createElement("li");
-                li.innerText = step;
-                stepsList.appendChild(li);
-            });
-        }
-
-        function leaveRoom() {
-            window.location.href = '#';
-        }
-
-        function closeModal() {
-            modal.style.display = "none";
-        }
-
- // Function to check if all checklist items are checked
- function checkChecklist() {
-            const checkboxes = document.querySelectorAll('#checklist input[type="checkbox"]');
-            const allChecked = Array.from(checkboxes).every(checkbox => checkbox.checked);
-            if (allChecked) {
-                closeModal();
-            }
-        }
-
-        // Open the modal when the page loads
-        window.onload = function() {
-            openModal('Zimmer der Näherin');
-        }
-
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                closeModal();
-            }
-        }
+<div id="infoModal" class="modal">
+<div class="modal-content">
+<span class="close" id="closeModal">&times;</span>
+    <h2>Erklärung</h2>
+        <p> Herzlich Willkommen! Du bist gerade dabei die KMM Küche zu betreten, um dir deinen Aufenthalt angenehmer zu machen, sind hier ein paar Hinweise für dich:<br><br>
+1. Viele Elemente auf der Website sind klickbar, um mit ihnen zu interagieren, musst du auf diese klicken.<br>
+2. Einmal geklickt, öffnet sich ein Fenster mit den jeweiligen Informationen, rechts oben kannst du dieses schließen.<br>
+3. Nachdem ein Objekt geklickt wurde, bekommt es Farbe.<br>
+4. Hast du alle Objekte gefunden, verwandelt sich die Küche.<br><br>
+Viel Spaß!
+        </p>
+    <button id="goBtn" onclick="window.location.href='seite2.html'">Los geht's!</button>
+</div>
+</div>
+<script>
+    const startBtn = document.getElementById('startBtn');
+    const modal = document.getElementById('infoModal');
+    const closeModal = document.getElementById('closeModal');
+    
+    
+    startBtn.onclick = () => {
+    modal.style.display = 'block';
+    };
+    
+    
+    closeModal.onclick = () => {
+    modal.style.display = 'none';
+    };
+    
+    
+    window.onclick = (event) => {
+    if (event.target === modal) {
+    modal.style.display = 'none';
+    }
+    };
     </script>
-</body>
+    </body>
 </html>
